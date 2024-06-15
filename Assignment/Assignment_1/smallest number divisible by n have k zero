@@ -1,0 +1,37 @@
+import java.util.*; 
+  
+public class Main { 
+     public static long gcd(long a, long b) 
+        {  
+            if (a == 0 || b == 0) 
+               return 0; 
+            
+            if (a == b) 
+                return a; 
+            
+            if (a > b) 
+                return gcd(a % b, b); 
+            return gcd(a, b % a); 
+        } 
+  
+    
+    public static long find(long n, long k) 
+    { 
+        long num = (long)Math.pow(10, k); 
+       
+        long ans = gcd(num, n); 
+       
+        return ((num * n) / ans); 
+    } 
+      
+    
+    public static void main(String[] args)  
+    { 
+        Scanner sc = new Scanner (System.in);
+        long n = sc.nextLong();
+        long k = sc.nextLong();
+        
+        System.out.println( getRounding(n, k)); 
+          
+    } 
+} 
