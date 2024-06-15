@@ -1,0 +1,25 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        long a = Long.MIN_VALUE; 
+        long b = Long.MIN_VALUE; 
+        long c = Long.MIN_VALUE;
+        
+        for(int ele : nums){ // 2
+            if(ele > a){ // 1>2 -- false
+                c = b; // 
+                b = a; // 1
+                a = ele; // 2
+            }
+            else if(a > ele && ele > b ){
+                c = b;  
+                b = ele; // 2
+            }
+            else if(b > ele && ele > c){
+                c= ele; // 1
+            }
+            
+        }
+
+        return c != Long.MIN_VALUE ? (int)c : (int)a;
+    }
+}
